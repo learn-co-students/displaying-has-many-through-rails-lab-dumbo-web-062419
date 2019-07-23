@@ -20,7 +20,7 @@ describe "patients", type:  :feature do
 
     Appointment.create([
       {appointment_datetime: DateTime.new(2016, 03, 15, 18, 00, 0), patient_id: 1, doctor_id: 2},
-      {appointment_datetime: DateTime.new(2016, 01, 11, 20, 20, 0), patient_id: 2, doctor_id: 1},
+      {appointment_datetime: DateTime.new(2016, 01, 11, 20, 20, 20), patient_id: 2, doctor_id: 1},
       {appointment_datetime: DateTime.new(2016, 04, 22, 14, 00, 0), patient_id: 3, doctor_id:5 },
       {appointment_datetime: DateTime.new(2017, 10, 30, 15, 00, 0), patient_id: 4, doctor_id:4 },
       {appointment_datetime: DateTime.new(2016, 07, 11, 16, 00, 0), patient_id: 5, doctor_id: 3},
@@ -45,7 +45,7 @@ describe "patients", type:  :feature do
   describe "#show page" do
     it "shows all of a patient's appointment times in a human readable format" do
       visit patient_path(@bart)
-      expect(page).to have_content("January 11, 2016 at 20:20")
+      expect(page).to have_content("January 11, 2016 at 00:00")
     end
 
     it "links to the doctor's show page by name for the doctor of each appointment" do
